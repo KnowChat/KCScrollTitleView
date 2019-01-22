@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "KCScrollTitleView"
   s.version      = "1.0.0"
-  s.summary      = "A short description of KCScrollTitleView."
+  s.summary      = "KCScrollTitleView."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-		可以实时滑动的title切换视图，支持增删改
+		KCScrollTitleView可以实时滑动的title切换视图，支持增删改
                    DESC
 
   s.homepage     = "https://github.com/KnowChat/KCScrollTitleView.git"
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "KCScrollTitleView/*.{h,m}"
+  s.source_files  = "KCScrollTitleView/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
