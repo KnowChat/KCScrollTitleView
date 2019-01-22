@@ -12,7 +12,9 @@
 
 #### Demo示例（和UIScrollView结合使用）
 
-![screen_shoot](https://github.com/KnowChat/KCScrollTitleView/blob/master/Screen%20Shot.png)	
+<p align="center">
+  <img src="https://github.com/KnowChat/KCScrollTitleView/blob/master/Screen%20Shot.png" title="Demo Screen Shot" height="375" width="812">
+</p>
 
 
 #### 实现UIScrollViewDelegate
