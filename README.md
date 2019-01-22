@@ -13,7 +13,7 @@
 #### Demo示例（和UIScrollView结合使用）
 
 <p align="center">
-  <img src="https://github.com/KnowChat/KCScrollTitleView/blob/master/Screen%20Shot.png" title="Demo Screen Shot" height="375" width="812">
+  <img src="https://github.com/KnowChat/KCScrollTitleView/blob/master/Screen%20Shot.png" title="Demo Screen Shot" height="812" width="375">
 </p>
 
 
