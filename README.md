@@ -1,16 +1,20 @@
 # KCScrollTitleView
 
+
+
 - KCScrollTitleView
 
-> KCScrollTitleItem
->
-> KCScrollTitleView
+> *KCScrollTitleItem*
+
+> *KCScrollTitleView*
 
 
 
 #### Demo示例（和UIScrollView结合使用）
 
-![screen_shot_1] (https://github.com/KnowChat/KCScrollTitleView/blob/master/Screen%20Shot1.png)
+<p align="center">
+  <img src="Screen_Shot1.png" title="Screen_Shot1" float=left>
+</p>
 
 
 
@@ -18,9 +22,10 @@
 
 ```objective-c
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//给KCScrollTitleView设置滑动比例
-CGFloat percent = scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.frame.size.width);
-self.vwScrollTitle.percent = percent;
+    //给KCScrollTitleView设置滑动比例
+    CGFloat percent = scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.frame.size.width);
+    
+    self.vwScrollTitle.percent = percent;
 }
 ```
 
@@ -30,15 +35,20 @@ self.vwScrollTitle.percent = percent;
 
 ```objective-c
 - (void)changeEvent:(UIButton *)btn {
-if (self.vwScrollTitle.aryItems.count > 0) {
-KCScrollTitleItem *item = self.vwScrollTitle.aryItems.lastObject;
-NSString *strTitle = @"乌鲁木齐";
-if ([item.attTitle.string isEqualToString:@"乌鲁木齐"]) {
-strTitle = @"杭州";
-}
-NSAttributedString *attTitle = [[NSAttributedString alloc] initWithString:strTitle attributes:@{NSFontAttributeName:[KCScrollTitleItem titleBoldFontWithValue:21.f]}];
-[item changeTitle:attTitle];
-}
+    if (self.vwScrollTitle.aryItems.count > 0) {
+        
+        KCScrollTitleItem *item = self.vwScrollTitle.aryItems.lastObject;
+        
+        NSString *strTitle = @"乌鲁木齐";
+        
+        if ([item.attTitle.string isEqualToString:@"乌鲁木齐"]) {
+            strTitle = @"杭州";
+        }
+
+        NSAttributedString *attTitle = [[NSAttributedString alloc] initWithString:strTitle attributes:@{NSFontAttributeName:[KCScrollTitleItem titleBoldFontWithValue:21.f]}];
+
+        [item changeTitle:attTitle];
+    }
 }
 ```
 
@@ -48,21 +58,28 @@ NSAttributedString *attTitle = [[NSAttributedString alloc] initWithString:strTit
 
 ```objective-c
 - (void)addEvent:(UIButton *)btn {
-//创建新Item
-NSAttributedString *attTitle = [[NSAttributedString alloc] initWithString:@"新增" attributes:@{NSFontAttributeName:[KCScrollTitleItem titleBoldFontWithValue:21.f]}];
-KCScrollTitleItem *item = [[KCScrollTitleItem alloc] initWithTitle:attTitle];
-item.itemMaxWidth = 79;
-item.itemSize = [KCScrollTitleItem calculateSizeWithStr:attTitle];
-item.backgroundColor = [UIColor whiteColor];
-[item addTarget:self action:@selector(scrollTitleItemEvent:) forControlEvents:UIControlEventTouchUpInside];
+    //创建新Item
+    NSAttributedString *attTitle = [[NSAttributedString alloc] initWithString:@"新增" attributes:@{NSFontAttributeName:[KCScrollTitleItem titleBoldFontWithValue:21.f]}];
+    
+    KCScrollTitleItem *item = [[KCScrollTitleItem alloc] initWithTitle:attTitle];
 
-//修改aryItems和scwShow.contentSize
-[self.vwScrollTitle.aryItems addObject:item];
-self.scwShow.contentSize = CGSizeMake(self.vwScrollTitle.aryItems.count * CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
-[self.vwScrollTitle show];
+    item.itemMaxWidth = 79;
 
-//选中新加的item
-[self scrollTitleItemEvent:item];
+    item.itemSize = [KCScrollTitleItem calculateSizeWithStr:attTitle];
+
+    item.backgroundColor = [UIColor whiteColor];
+
+    [item addTarget:self action:@selector(scrollTitleItemEvent:) forControlEvents:UIControlEventTouchUpInside];
+
+    //修改aryItems和scwShow.contentSize
+    [self.vwScrollTitle.aryItems addObject:item];
+
+    self.scwShow.contentSize = CGSizeMake(self.vwScrollTitle.aryItems.count * CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+
+    [self.vwScrollTitle show];
+
+    //选中新加的item
+    [self scrollTitleItemEvent:item];
 }
 ```
 
@@ -72,13 +89,16 @@ self.scwShow.contentSize = CGSizeMake(self.vwScrollTitle.aryItems.count * CGRect
 
 ```objective-c
 - (void)deleteEvent:(UIButton *)btn {
-if (self.vwScrollTitle.aryItems.count > 0) {
-//修改aryItems和scwShow.contentSize
-[self.vwScrollTitle.aryItems removeLastObject];
-self.scwShow.contentSize = CGSizeMake(self.vwScrollTitle.aryItems.count * CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
-[self.vwScrollTitle show];
-}
+    if (self.vwScrollTitle.aryItems.count > 0) {
+        
+        //修改aryItems和scwShow.contentSize
+
+        [self.vwScrollTitle.aryItems removeLastObject];
+
+        self.scwShow.contentSize = CGSizeMake(self.vwScrollTitle.aryItems.count * CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+
+        [self.vwScrollTitle show];
+    }
 }
 ```
-
 
