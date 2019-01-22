@@ -156,7 +156,11 @@
     }else if (percent > 1) {
         _percent = 1;
     }else {
-        _percent = percent;
+        if (isnan(percent)) {
+            _percent = 1;
+        }else {
+            _percent = percent;
+        }
     }
     
     if (self.aryItems.count > 1) {
@@ -219,6 +223,11 @@
                 self.vwLine.transform = CGAffineTransformScale(self.vwLine.transform, lineScale, 1);
             }
         }
+    }else if (self.aryItems.count == 1){
+        KCScrollTitleItem *item = self.aryItems[0];
+        item.currentPercentRatio = 1;
+        self.vwLine.transform = CGAffineTransformIdentity;
+        self.selectedIndex = 0;
     }
 }
 
