@@ -91,9 +91,8 @@
         item.itemScaleRatio = self.scaleRatio;
         item.itemNormalAlpha = self.itemNormalAlpha;
         item.changeTitleBlock = ^{
-            CGFloat adjectPercent = weakSelf.aryItems.count <= 1?0:(weakSelf.selectedIndex * 1.0 / (weakSelf.aryItems.count - 1));
-            [weakSelf setPercent:adjectPercent];
             [weakSelf invalidateIntrinsicContentSize];
+            [weakSelf setPercent:weakSelf.percent];
         };
         [self addSubview:item];
         
